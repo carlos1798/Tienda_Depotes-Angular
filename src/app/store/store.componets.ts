@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Producto } from "../model/model";
 import { ProductoRepositorio } from "../model/repository";
 import { Carrito } from "../model/carrito.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "store",
@@ -11,8 +12,7 @@ export class StoreComponent{
   categoriaSeleccionada: string | undefined;
   productosPorPg = 4;
   paginaSeleccionada = 1;
-  constructor(private repositorio: ProductoRepositorio, private carrito: Carrito) {
- }
+  constructor(private repositorio: ProductoRepositorio, private carrito: Carrito,private router:Router) {}
   get productos(): Producto[]{
     let indicePagina = (this.paginaSeleccionada -1) * this.productosPorPg
     return this.repositorio.getProductos(this.categoriaSeleccionada).slice(indicePagina, indicePagina + this.productosPorPg);
@@ -39,5 +39,6 @@ export class StoreComponent{
   }
   addProductoCarrito(producto: Producto) {
     this.carrito.addLinea(producto);
+    this.router.navigateByUrl("/carrito");
   }
 }

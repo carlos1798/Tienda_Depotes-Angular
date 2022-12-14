@@ -4,9 +4,13 @@ import { FormsModule } from "@angular/forms";
 import { ModelModule } from "../model/module";
 import { StoreComponent } from "./store.componets";
 import { CarritoSumarioComponent } from "./sumarioCarrito.component";
+import { detallesCarritoComponent } from "./detallesCarrito.component";
+import { pasarCajaComponent } from "./pasarCaja.component";
+import { RouterModule } from "@angular/router";
+
 @NgModule({
-  imports: [ModelModule, BrowserModule, FormsModule],
-  declarations: [StoreComponent,CarritoSumarioComponent],
-  exports: [StoreComponent]
+  imports: [ModelModule, BrowserModule, FormsModule,RouterModule],
+  declarations: [StoreComponent,CarritoSumarioComponent,detallesCarritoComponent, pasarCajaComponent],
+  exports: [StoreComponent,detallesCarritoComponent,pasarCajaComponent]
 })
 export class StoreModule{};

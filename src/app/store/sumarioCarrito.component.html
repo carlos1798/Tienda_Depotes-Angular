@@ -8,7 +8,7 @@
     <span *ngIf="carrito.numeroItems == 0">
       (vacio)
     </span>
-    <button class="btn btn-sm bg-dark text-white" [disabled]="carrito.numeroItems==0">
+    <button class="btn btn-sm bg-dark text-white" [disabled]="carrito.numeroItems==0" routerLink="/carrito">
       <i class="fa fa-shopping-cart"></i>
     </button>
   </small>

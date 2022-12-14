@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="bg-dark text-white p-2">
+      <span class="navbar-brand ml-2">Tienda de Deportes</span>
+    </div>
+  </div>
+  <div class="col mt-2">
+    <h2 class="text-center">Tu Carrito</h2>
+    <table class="table table-bordered table-striped p-2">
+      <thead>
+        <tr>
+          <th>Cantidad</th>
+          <th>Producto</th>
+          <th class="text-end">Precio</th>
+          <th class="text-end">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="carrito.lineas.length == 0">
+          <td colspan="4" class="text-center">Tu carrito esta vacio</td>
+        </tr>
+        <tr *ngFor="let linea of carrito.lineas">
+          <td>
+            <input
+              type="number"class="form-control-sm"style="width: 5em" [value]="linea.cantidad"  (change)="carrito.updateCantidad(linea.producto,$any($event).target.value)"/>
+          </td>
+          <td>{{ linea.producto.nombre }}</td>
+          <td class="text-end">
+            {{ linea.producto.precio | currency : "EUR" : "symbol" : "2.2-2" }}
+          </td>
+          <td class="text-center">
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="carrito.borrarLinea(linea.producto.id ?? 0)"
+            >
+              Borrar
+            </button>
+          </td>
+
+        </tr>
+      </tbody>
+      <tfoot>
+          <td class="text-end" colspan="3">Total:</td>
+          <td class="text-end">
+            {{ carrito.precioCarrito | currency : "EUR" : "symbol" : "2.2-2" }}
+          </td>
+      </tfoot>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="text-center">
+      <button class="btn btn-primary m-1" routerLink="/store">
+        Seguir comprando
+      </button>
+      <button class="btn btn-secondary m-1" routerLink="/checkout" [disabled]="carrito.lineas.length == 0">Comprar</button>
+    </div>
+  </div>
+</div>
