@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="bg-dark text-white">
+      <span class="navbar-brand m1-2">Tienda de deportes
+        <sumario-carrito></sumario-carrito>
+      </span>
+    </div>
+  </div>
+  <div class="row text-white">
+    <div class="col-3 p-2 text-white">
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-primary" (click)="cambiarCategoria()">
+          Home
+        </button>
+        <button
+          *ngFor="let categoria of categorias"
+          class="btn btn-outline-primary"
+          [class.active]="categoria == categoriaSeleccionada"
+          (click)="cambiarCategoria(categoria)"
+        >
+          {{ categoria }}
+        </button>
+      </div>
+    </div>
+    <div class="col-9">
+      <div
+        *ngFor="let producto of productos"
+        class="card m-1 p-1 text-black bg-light"
+      >
+        <h4>
+          {{ producto.nombre }}
+          <span class="badge rounded-pill bg-primary" style="float: right">
+            {{ producto.precio | currency : "EUR" : "symbol" : "2.2-2" }}
+          </span>
+        </h4>
+        <div class="card-text bg-white p-1">
+          {{producto.descripcion}}
+          <button class="btn btn-success btn-sm float-end"
+          (click)="addProductoCarrito(producto)"
+          >Anadir al carrito</button>
+        </div>
+
+      </div>
+      <div class="form-inline float-start mr=1">
+        <select
+          class="form-control"
+          [value]="productosPorPg"
+          (change)="cambiarPaginaTamano($any($event).target.value)"
+        >
+          <option value="3">3 por pagina</option>
+          <option value="4">4 por pagina</option>
+          <option value="5">5 por pagina</option>
+        </select>
+      </div>
+      <div class="btn-group float-end">
+        <button  *ngFor="let pagina of numeroPaginas"
+        (click) = "cambiarPagina(pagina)"
+        [class.active]="pagina == paginaSeleccionada"
+        class="btn btn-outline-primary">{{pagina}}</button>
+      </div>
+    </div>
+  </div>
+</div>

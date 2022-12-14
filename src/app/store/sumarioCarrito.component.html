@@ -1,0 +1,15 @@
+<div class="float-end">
+  <small class="fs-6">
+    Tu carrito:
+    <span *ngIf="carrito.numeroItems>0">
+      {{carrito.numeroItems}} producto(s)
+      {{carrito.precioCarrito |currency: "EUR":"symbol":"2.2-2"}}
+    </span>
+    <span *ngIf="carrito.numeroItems == 0">
+      (vacio)
+    </span>
+    <button class="btn btn-sm bg-dark text-white" [disabled]="carrito.numeroItems==0">
+      <i class="fa fa-shopping-cart"></i>
+    </button>
+  </small>
+</div>
