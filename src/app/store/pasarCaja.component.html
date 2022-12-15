@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="bg-dark text-white p-2">
+            <span class="navbar-brand ml-2">Tienda de Deportes</span>
+        </div>
+</div>
+</div>
+<div *ngIf="ordenEnviada" class="m-2 text-center">
+    <h2>Gracias por tu compra</h2>
+    <p>Enviaremos su pedido enseguida!!</p>
+    <div class="btn btn-primary" routerLink="/store">Volver a la tienda</div>
+</div>
+<div *ngIF="!ordenEnviada" #Form="NgForm" novalidate (ngSubmit)="procesarOrden(form)" class="m-2">
+
+</div>

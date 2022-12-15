@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "TiendaDeportes"
+  "defaultProject": "TiendaDeportes",
+  "cli": {
+    "analytics": false
+  }
 }
