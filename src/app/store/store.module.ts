@@ -7,7 +7,6 @@ import { CarritoSumarioComponent } from "./sumarioCarrito.component";
 import { detallesCarritoComponent } from "./detallesCarrito.component";
 import { pasarCajaComponent } from "./pasarCaja.component";
 import { RouterModule } from "@angular/router";
-
 @NgModule({
   imports: [ModelModule, BrowserModule, FormsModule,RouterModule],
   declarations: [StoreComponent,CarritoSumarioComponent,detallesCarritoComponent, pasarCajaComponent],

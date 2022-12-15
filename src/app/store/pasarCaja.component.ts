@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
 import { Orden } from "../model/orden.model";
 import { OrdenRepositorio } from "../model/orden.repository";
+import { NgForm } from "@angular/forms";
 
 @Component({
 
@@ -23,7 +23,7 @@ export class pasarCajaComponent{
                 this.ordenEnviada = true;
                 this.procesada = false;
             });
-            
+
         }
     }
 

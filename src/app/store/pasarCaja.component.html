@@ -3,13 +3,47 @@
         <div class="bg-dark text-white p-2">
             <span class="navbar-brand ml-2">Tienda de Deportes</span>
         </div>
-</div>
+    </div>
 </div>
 <div *ngIf="ordenEnviada" class="m-2 text-center">
     <h2>Gracias por tu compra</h2>
     <p>Enviaremos su pedido enseguida!!</p>
     <div class="btn btn-primary" routerLink="/store">Volver a la tienda</div>
 </div>
-<div *ngIF="!ordenEnviada" #Form="NgForm" novalidate (ngSubmit)="procesarOrden(form)" class="m-2">
+<div class="row">
+<div class="col-3 p-2 text-black ">
+<form *ngIf="!ordenEnviada" #form="ngForm" novalidate (ngSubmit)="procesarOrden(form)" class="m-2">
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" class="form-control" name="nombre" #name="ngModel" [(ngModel)]="orden.nombre" required />
+        <span *ngIf="procesada && name.invalid" class="text-danger">Por favor introduce tu nombre</span>
+    </div>
+    <div class="form-group">
+        <label>Ciudad</label>
+        <input type="text" class="form-control" name="ciudad" #ciudad="ngModel" [(ngModel)]="orden.ciudad" />
+        <span *ngIf="procesada && name.invalid" class="text-danger">Por favor introduce tu ciudad</span>
+    </div>
+<div class="form-group">
+       <label>Comunidad Autonoma</label>
+        <input type="text" class="form-control" name="comAutonoma" #comAutonoma="ngModel" [(ngModel)]="orden.comAutonoma" />
+        <span *ngIf="procesada && name.invalid" class="text-danger">Por favor introduce tu comunidad autonoma</span>
+    </div>
+<div class="form-group">
+       <label>Codigo postal</label>
+        <input type="text" class="form-control" name="codPostal" #codPostal="ngModel" [(ngModel)]="orden.codigoPostal" />
+        <span *ngIf="procesada && name.invalid" class="text-danger">Por favor introduce tu codigo postal</span>
+    </div>
+    <div class="form-group">
+       <label>Pais</label>
+        <input type="text" class="form-control" name="Pais" #Pais="ngModel" [(ngModel)]="orden.pais" />
+        <span *ngIf="procesada && name.invalid" class="text-danger">Por favor introduce tu codigo postal</span>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-secondary m-1" routerLink = "/carrito">Volver</button>
+        <button class="btn btn-primary m-1" type="submit">Completar el pedido</button>
+    </div>
 
-</div>
+
+
+</form>
+</div></div>
