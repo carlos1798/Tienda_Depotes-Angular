@@ -47,6 +47,6 @@ export class LineaCarrito{
   constructor(public producto:Producto,public cantidad:number) {
   }
   get cantidadTotal() {
-    return this.cantidad * (this.producto.precio ?? 0)
+    return this.cantidad * (this.producto.price ?? 0)
   }
 }

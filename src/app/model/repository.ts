@@ -10,13 +10,13 @@ export class ProductoRepositorio{
   constructor(private datasource: StaticDataSource) {
     datasource.getProductos().subscribe(data => {
       this.productos = data;
-      this.categorias = data.map(p => p.categoria ?? "(Vacia)")
+      this.categorias = data.map(p => p.category ?? "(Vacia)")
         .filter((c, index, array) => array.indexOf(c) == index).sort();
     });
   }
 
   getProductos(categoria?: string): Producto[]{
-    return this.productos.filter(p => categoria == undefined || categoria == p.categoria);
+    return this.productos.filter(p => categoria == undefined || categoria == p.category);
   }
   getProducto(id: number): Producto | undefined{
     return this.productos.find(p => p.id == id);

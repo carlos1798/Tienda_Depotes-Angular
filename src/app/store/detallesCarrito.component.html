@@ -24,9 +24,9 @@
             <input
               type="number"class="form-control-sm"style="width: 5em" [value]="linea.cantidad"  (change)="carrito.updateCantidad(linea.producto,$any($event).target.value)"/>
           </td>
-          <td>{{ linea.producto.nombre }}</td>
+          <td>{{ linea.producto.name }}</td>
           <td class="text-end">
-            {{ linea.producto.precio | currency : "EUR" : "symbol" : "2.2-2" }}
+            {{ linea.producto.price | currency : "EUR" : "symbol" : "2.2-2" }}
           </td>
           <td class="text-center">
             <button

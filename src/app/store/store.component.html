@@ -28,13 +28,13 @@
         class="card m-1 p-1 text-black bg-light"
       >
         <h4>
-          {{ producto.nombre }}
+          {{ producto.name }}
           <span class="badge rounded-pill bg-primary" style="float: right">
-            {{ producto.precio | currency : "EUR" : "symbol" : "2.2-2" }}
+            {{ producto.price | currency : "EUR" : "symbol" : "2.2-2" }}
           </span>
         </h4>
         <div class="card-text bg-white p-1">
-          {{producto.descripcion}}
+          {{producto.description}}
           <button class="btn btn-success btn-sm float-end"
           (click)="addProductoCarrito(producto)"
           >Anadir al carrito</button>
