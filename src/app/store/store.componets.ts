@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { Producto } from "../model/model";
-import { ProductoRepositorio } from "../model/repository";
+import { Producto } from "../model/producto.model";
+import { ProductoRepositorio } from "../model/producto.repository";
 import { Carrito } from "../model/carrito.model";
 import { Router } from "@angular/router";
 

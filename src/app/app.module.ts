@@ -25,6 +25,11 @@ import { tiendaPrimeroGuard } from './tiendaPrimero.guard';
         canActivate: [tiendaPrimeroGuard],
       },
       {
+        path:"admin",
+        loadChildren: () => import("./admin/admin.module").then(m => m.AdminModule),
+        canActivate:[tiendaPrimeroGuard]
+      },
+      {
         path: 'checkout',
         component: pasarCajaComponent,
         canActivate: [tiendaPrimeroGuard],

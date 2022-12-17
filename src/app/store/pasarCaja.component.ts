@@ -10,18 +10,18 @@ import { NgForm } from "@angular/forms";
 })
 export class pasarCajaComponent{
 
-    ordenEnviada:boolean = false;
-    procesada: boolean = true;
+    shipped:boolean = false;
+    submitted: boolean = true;
 
     constructor(public repositorio:OrdenRepositorio,public orden:Orden){}
 
     procesarOrden(form:NgForm){
-        this.procesada = true;
+        this.submitted = true;
         if (form.valid) {
             this.repositorio.guardarOrden(this.orden).subscribe(orden =>{
                 this.orden.limpiar();
-                this.ordenEnviada = true;
-                this.procesada = false;
+                this.shipped = true;
+                this.submitted = false;
             });
 
         }

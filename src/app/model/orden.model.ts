@@ -4,21 +4,21 @@ import { Carrito  } from "./carrito.model";
 @Injectable()
 export class Orden{
     public id?:number;
-    public nombre?:string;
-    public direccion?:string;
-    public ciudad?:string;
-    public comAutonoma?:string;
-    public codigoPostal?:string;
-    public pais?:string;
-    public enviado:boolean = false;
-    
+    public name?:string;
+    public address?:string;
+    public city?:string;
+    public state?:string;
+    public zip?:string;
+    public country?:string;
+    public shipped:boolean = false;
+
     constructor(public carrito:Carrito){}
-    
+
     limpiar(){
         this.id = undefined;
-        this.nombre = this.direccion =this.ciudad= undefined;
-        this.comAutonoma = this.codigoPostal =this.pais= undefined;
-        this.enviado = false;
+        this.name = this.address =this.city= undefined;
+        this.state = this.zip =this.country= undefined;
+        this.shipped = false;
         this.carrito.clear();
     }
 
