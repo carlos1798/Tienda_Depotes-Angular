@@ -11,7 +11,7 @@ export class OrdenRepositorio{
 
     loadOrders() {
         this.loaded = true
-        this.dataSource.getOrders().subscribe(ordenes =>this.ordenes=this.ordenes)
+        this.dataSource.getOrders().subscribe(ordenes =>this.ordenes=ordenes)
     }
     getOrdenes(): Orden[]{
         if (!this.loaded) {

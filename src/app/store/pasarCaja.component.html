@@ -5,14 +5,14 @@
         </div>
     </div>
 </div>
-<div *ngIf="shipped" class="m-2 text-center">
+<div *ngIf="orderSent" class="m-2 text-center">
     <h2>Gracias por tu compra</h2>
     <p>Enviaremos su pedido enseguida!!</p>
     <div class="btn btn-primary" routerLink="/store">Volver a la tienda</div>
 </div>
 <div class="row">
 <div class="col-3 p-2 text-black ">
-<form *ngIf="!shipped" #form="ngForm" novalidate (ngSubmit)="procesarOrden(form)" class="m-2">
+<form *ngIf="!orderSent" #form="ngForm" novalidate (ngSubmit)="procesarOrden(form)" class="m-2">
     <div class="form-group">
         <label>name</label>
         <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="orden.name" required />

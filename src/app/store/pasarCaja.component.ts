@@ -10,7 +10,7 @@ import { NgForm } from "@angular/forms";
 })
 export class pasarCajaComponent{
 
-    shipped:boolean = false;
+    orderSent:boolean = false;
     submitted: boolean = true;
 
     constructor(public repositorio:OrdenRepositorio,public orden:Orden){}
@@ -20,7 +20,7 @@ export class pasarCajaComponent{
         if (form.valid) {
             this.repositorio.guardarOrden(this.orden).subscribe(orden =>{
                 this.orden.limpiar();
-                this.shipped = true;
+                this.orderSent = true;
                 this.submitted = false;
             });
 
