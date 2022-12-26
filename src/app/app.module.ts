@@ -7,12 +7,15 @@ import { StoreComponent } from './store/store.componets';
 import { detallesCarritoComponent } from './store//detallesCarrito.component';
 import { pasarCajaComponent } from './store//pasarCaja.component';
 import { tiendaPrimeroGuard } from './tiendaPrimero.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     StoreModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: 'tienda',

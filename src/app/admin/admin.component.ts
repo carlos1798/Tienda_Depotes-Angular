@@ -1,8 +1,21 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthService } from "../model/auth.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @Component({
-    templateUrl: "admin.component.html"
+    templateUrl: "admin.component.html",
+    animations: []
 })
 export class AdminComponent{
+  constructor(private auth: AuthService, private router: Router) {
+
+  }
+  logout() {
+    this.auth.clear();
+    this.router.navigateByUrl("/");
+  }
 
 }
