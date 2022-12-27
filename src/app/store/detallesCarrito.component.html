@@ -54,7 +54,7 @@
       <button class="btn btn-primary m-1" routerLink="/store">
         Seguir comprando
       </button>
-      <button class="btn btn-secondary m-1" routerLink="/checkout" [disabled]="carrito.lineas.length == 0">Comprar</button>
+      <button class="btn btn-secondary m-1" routerLink="/checkout" [disabled]="carrito.lineas.length == 0||!connected">{{connected? 'Comprar':'Offline'}}</button>
     </div>
   </div>
 </div>

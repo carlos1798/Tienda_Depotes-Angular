@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from './store/store.module';
 import { AppComponent } from './app.component';
@@ -8,6 +8,7 @@ import { detallesCarritoComponent } from './store//detallesCarrito.component';
 import { pasarCajaComponent } from './store//pasarCaja.component';
 import { tiendaPrimeroGuard } from './tiendaPrimero.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -39,6 +40,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       },
       { path: '**', redirectTo: '/tienda' },
     ]),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [tiendaPrimeroGuard],
   bootstrap: [AppComponent],

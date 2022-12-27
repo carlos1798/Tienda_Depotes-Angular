@@ -1,0 +1,13 @@
+FROM node:16.3.0
+RUN mkdir -p /usr/src/tiendadeportes
+
+COPY dist/TiendaDeportes /usr/src/tiendadeportes/dist/SportsStore
+COPY ssl /usr/src/tiendadeportes/ssl
+COPY authMiddleware.js /usr/src/tiendadeportes/
+COPY serverdata.json /usr/src/tiendadeportes/
+COPY server.js /usr/src/tiendadeportes/server.js
+COPY deploy-package.json /usr/src/tiendadeportes/package.json
+WORKDIR /usr/src/tiendadeportes
+RUN npm install
+EXPOSE 80
+CMD ["node", "server.js"]
